@@ -1,0 +1,58 @@
+{% load static %}
+
+<nav style="font-size: 20px;" class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+
+    <a href="{% url 'home' %}">
+      <img class="radius m-3" style="width: 175px; height: 75px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPSb-YTF5Cn90Uk5RH4YpG2aoVKwJkaTigDg&s" alt="">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu ml-5">
+    <div class="navbar-start">
+      <a style="text-decoration: none;" href="{% url 'home' %}" class="navbar-item white">
+        Home
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a style="text-decoration: none;" class="navbar-link white">
+          My Social Networks
+        </a>
+        <div class="navbar-dropdown">
+          {% for item in links %}
+          <a style="text-decoration: none;" href="{{ item.social }}" class="navbar-item white">
+            {{ item.title }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a style="text-decoration: none;" class="navbar-link white">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a style="text-decoration: none;" href="{% url 'about' %}" class="navbar-item white">
+            About Me
+          </a>
+          <a style="text-decoration: none;" class="navbar-item white">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a style="text-decoration: none;" class="navbar-item white">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
